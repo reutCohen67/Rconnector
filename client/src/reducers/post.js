@@ -53,13 +53,14 @@ export default function(state = initialState, action, match) {
                 loading: false
             };
         case UPDATE_LIKES:     
-          
+    
             return{
                 ...state,
                 posts: state.posts.map(post => post._id === payload.id ?
                     {...post, likes: payload.likes} : post
                     ),
-                    loading: false
+                    loading: false,
+                post: {...state.post, likes: payload.likes}
             }
         case ADD_COMMENT: 
             return {
